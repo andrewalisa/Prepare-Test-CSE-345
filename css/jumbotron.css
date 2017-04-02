@@ -1,0 +1,27 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.error {
+    color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.welcome {
+    position: relative;
+    margin-left: -1%;
+    margin-top: 2%;
+    color: white;
+}
+
+.logout {
+    margin-right: 10%;
+    margin-top: 2%;
+}
