@@ -8,9 +8,9 @@ Not intended for actual use.
 *******************
 My Teammates 
 *******************
-Andrew Alisa - Project Leader
-Larisa Garmo - Helped out with the designing 
-Valier Jarbo - Helped out with the overall execution
+- Andrew Alisa - Project Leader 
+- Larisa Garmo - Helped out with the designing 
+- Valerie Jarbo - Helped out with the overall execution
 
 ***************
 Acknowledgement
