@@ -4,15 +4,6 @@ error_reporting(E_ALL);
 ini_set("display_errors", "on");  
 ?><!DOCTYPE html>
 <html lang="en">
-
-<?php
-if (isset($this->session->userdata['is_logged_in'])) {
-$email = ($this->session->userdata['email']);
-$Fullname = ($this->session->userdata['full_name']);
-} else {
-header("location: login");
-}
-?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

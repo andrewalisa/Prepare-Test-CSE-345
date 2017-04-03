@@ -97,6 +97,7 @@ class Models_users extends CI_Model {
 
 	//Adding the user to the regular STUDENT database. 
 	public function add_student_to_db($key) {
+		//Looking for STU_KEY which is the key that is auto generated in the TEMP STUDENT table
 		$this->db->where('STU_KEY', $key);
 		$temp_student = $this->db->get('TEMP_STUDENT');
 
@@ -112,15 +113,20 @@ class Models_users extends CI_Model {
 				'STU_ZIP' => $row->STU_ZIP, 
 				'STU_EMAIL' => $row->STU_EMAIL,
 				'STU_PASSWORD' => $row->STU_PASSWORD); 
+				
+			$out['STU_EMAIL'] = $data['STU_EMAIL'];
+			$out['STU_FULLNAME'] = $data['STU_FNAME'];
+			$out['STU_FULLNAME'] .= " "  ;
+			$out['STU_FULLNAME'] .= $data['STU_LNAME'] ;
 
-
+			//Inserting the data from the TEMP_STUDENT table into the STUDENT table
 			$add_student = $this->db->insert('STUDENT', $data);
 		}
 		//Once I add the student, delete from the TEMP_STUDENT DB.
 		if ($add_student) {
 			$this->db->where('STU_KEY', $key);
 			$this->db->delete('TEMP_STUDENT');
-			return $data['STU_EMAIL'];
+			return $out;
 		} else {
 			return false; 
 		}

@@ -185,20 +185,32 @@ class Main extends CI_Controller {
 		}
 
 	}
-
+	
+	//This is what the user runs when they click on the confirmation link in their email
+	//This adds the user into the STUDENT table from the TEMP_STUDENT table
 	public function register_user($key) {
-
+		//Load the model, Models_users
 		$this->load->model('Models_users');
-
+		
+		//If the key is valid 
 		if ($this->Models_users->is_key_valid($key)) {
+			
+			//Once we add the student to the STUDENT table
+			if ($items = $this->Models_users->add_student_to_db($key)) {
+				
+				//Setting the email variable
+				$neweemail = $items['STU_EMAIL'];
+				
+				//Setting STU_FULLNAME
+				$STU_FULLNAME = $items['STU_FULLNAME'];
 
-			if ($neweemail = $this->Models_users->add_student_to_db($key)) {
-
+				//Creating the session array
 				$data = array(
 					'email' => $neweemail,
+					'full_name' => $STU_FULLNAME,
 					'is_logged_in' => 1
 					);
-
+				//Setting the session from the data array.
 				$this->session->set_userdata($data);
 				redirect('Main/portal');
 			} else echo "Failed to add the student. Please contact Andrew.";
