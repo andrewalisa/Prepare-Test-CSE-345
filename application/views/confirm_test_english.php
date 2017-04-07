@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+error_reporting(E_ALL);
+ini_set("display_errors", "on");  
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Restricted</title>
+    <title>Confirm your English Test</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,16 +30,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Restricted</h1>
-        <p>HEY YOU, YEAH YOU, you DO NOT have access to this page.</p>
-        <p>Please login or create an account to receive access to this page.</p>
-        
-        <p><a class="btn btn-primary btn-lg" href="/main" role="button">Back to the home page &raquo;</a></p>
+        <h1>Confirm Your English Test</h1>
+        <p><b><i>Please review the following:</i></b></p><br/>
+          <p>Your selected subject: <span style="color: red;">English</span></p>
+          <p>Your selected difficulty: <span style="color: red;"><?=$diff ; ?></span></p> <br/>
+          <p>If everything above looks correct, please click the "Start Button" below.</p>
+
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Start &raquo;</a></p>
       </div>
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
 
       <hr>
 

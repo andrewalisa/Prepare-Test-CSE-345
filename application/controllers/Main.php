@@ -39,6 +39,20 @@ class Main extends CI_Controller {
 		}	
 	}
 
+	//Loads the Select Difficulty view for the English test
+	public function select_difficulty_english() {
+		
+
+		//If this is true then load the difficulty page. Else redirect to the restricted page.
+		//Basically, if the user is logged in, go to the difficulty page for English, else it will take the user to a restricted page. 
+		if ($this->session->userdata('is_logged_in')) {
+
+			$this->load->view('select_difficulty_english'); 
+		} else {
+			redirect('Main/restricted');	 
+		}	
+	}
+
 	//Loading the restricted view. 
 	public function restricted() {
 		$this->load->view('restricted'); 
@@ -158,11 +172,11 @@ class Main extends CI_Controller {
 			$this->email->subject("Confirm your account on preparetestcse345.co!");
 
 			//The message of the email in a variable
-			$message = "<p>Hello $STU_FULLNAME, </p>";
+			$message = "<p>Hello $STU_FULLNAME, </p> <br/>";
 			//Adding more things to the message variable
 			$message .= "<p>Thank you for signing up for Prepare Test CSE 345!</p>";
 			$message .= "<p><a href='".base_url()."main/register_user/$key' >Click here</a> to confirm your account</p>"; 
-			$message .= "<p>If you are unable to click on the above link, please copy and paste this url: <a href='".base_url()."main/register_user/$key' >".base_url()."main/register_user/$key </a></p>"; 
+			$message .= "<p>If you are unable to click on the above link, please copy and paste this url: <a href='".base_url()."main/register_user/$key' >".base_url()."main/register_user/$key </a></p><br/>"; 
 			$message .= "<p>Thanks!</p>"; 
 			$message .= "<p>The Prepare Test CSE 345 TEAM</p>"; 
 
@@ -217,6 +231,18 @@ class Main extends CI_Controller {
 
 
 		} else echo "invalid key";
+
+	  }
+
+	  public function confirm_test_english($difficulty) {
+		if ($this->session->userdata('is_logged_in')) {
+			$arr_difficulty = array('diff' => $difficulty ); 
+
+			$this->load->view('confirm_test_english', $arr_difficulty); 
+
+		} else {
+			redirect('Main/restricted');	 
+		}	
 
 	  }
 	

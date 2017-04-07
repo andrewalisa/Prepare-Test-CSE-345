@@ -13,7 +13,7 @@ ini_set("display_errors", "on");
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Portal</title>
+    <title>Select Difficulty</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -30,45 +30,37 @@ ini_set("display_errors", "on");
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Portal</h1>
-        <p>Hello! Thanks for visiting Prepare Test CSE 345. This is an application that allows the end user to prepare for an exam. </p> 
-        <p>We currently offer two subjects to prepare for. These subjects are: English and Reading.  </p>
-        <p>The instructions to use this are as follows: 
-          <ul>
-            <li>Look at what subject you would like to take (English or Reading)</li>
-            <li>Choose difficulty (Easy, Medium, Hard)</li>
-            <li>Take the exam</li>
-          </ul>
-        </p>
+        <h1>Select Difficulty</h1>
+        <p>Please select the difficulty: </p>
+
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-6">
-          <h2>English</h2>
-          <h4><i>Some Tips:</i></h4>
-          <ul>
-            <li><p> Be aware of the writing style used in each passage. </p></li>
-            <li><p>Consider the elements of writing that are included in each underlined portion of the passage. Some questions will ask you to base your decision on some specific element of writing, such as the tone or emphasis the text should convey.</p></li>
-            <li><p>Examine each answer choice and determine how it differs from the others. Many of the questions in the test will involve more than one aspect of writing.</p></li>
-            <li><p><b>READ</b> and <b>REREAD</b> the entire passage before you answer the questions.</p></li>
-          </ul>
-            <p><a class="btn btn-default" href='<?php echo base_url()."Main/select_difficulty_english"; ?>' role="button">Select the Difficulty for the English Test &raquo;</a></p>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p> <?php print $Fullname; ?> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
 
-          
-
+          <!-- ANDREW remove the below code before turning in -->
           <?php 
           echo "<pre>";
           print_r($this->session->all_userdata()) ;
           echo "</pre>";
           ?>
         </div>
-        <div class="col-md-6">
-          <h2>Reading</h2>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Select the Difficulty for the Reading Test &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
 

@@ -38,11 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a class="navbar-brand" href="/Main">Prepare for Test!</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-            <li class="active"><a href="/Main">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
+ <ul class="nav navbar-nav">
+            <li><a href="/Main">Home</a></li>
+
+            <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -53,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li>-->
           </ul>
       
           <form action="http://preparetestcse345.co/Main/login_validation" method="post" accept-charset="utf-8" class="navbar-form navbar-right">
