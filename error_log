@@ -273,3 +273,28 @@ These options need to match
 [01-Apr-2017 22:58:49 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 45
 [01-Apr-2017 23:22:24 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home3/spritemoney/public_html/preparetestcse345.co/application/views/portal_page.php on line 10
 [01-Apr-2017 23:24:42 America/Chicago] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting ']' in /home3/spritemoney/public_html/preparetestcse345.co/application/views/portal_page.php on line 37
+[07-Apr-2017 00:49:10 America/Chicago] PHP Fatal error:  Can't use function return value in write context in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 238
+[07-Apr-2017 00:50:06 America/Chicago] PHP Fatal error:  Can't use function return value in write context in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 238
+[07-Apr-2017 00:50:10 America/Chicago] PHP Fatal error:  Can't use function return value in write context in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 238
+[07-Apr-2017 03:22:32 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 282
+[07-Apr-2017 04:11:27 America/Chicago] PHP Parse error:  syntax error, unexpected '$query' (T_VARIABLE) in /home3/spritemoney/public_html/preparetestcse345.co/application/models/Models_users.php on line 140
+[07-Apr-2017 04:16:02 America/Chicago] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home3/spritemoney/public_html/preparetestcse345.co/application/models/Models_users.php on line 137
+[07-Apr-2017 04:16:16 America/Chicago] PHP Parse error:  syntax error, unexpected '$diff' (T_VARIABLE) in /home3/spritemoney/public_html/preparetestcse345.co/application/models/Models_users.php on line 140
+[07-Apr-2017 04:29:57 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home3/spritemoney/public_html/preparetestcse345.co/application/views/english_test.php on line 39
+[07-Apr-2017 05:06:58 America/Chicago] PHP Parse error:  syntax error, unexpected '.' in /home3/spritemoney/public_html/preparetestcse345.co/application/views/english_test.php on line 46
+[07-Apr-2017 05:24:59 America/Chicago] PHP Fatal error:  Function name must be a string in /home3/spritemoney/public_html/preparetestcse345.co/application/views/english_test.php on line 39
+[07-Apr-2017 05:25:07 America/Chicago] PHP Fatal error:  Function name must be a string in /home3/spritemoney/public_html/preparetestcse345.co/application/views/english_test.php on line 39
+[07-Apr-2017 14:44:32 America/Chicago] PHP Parse error:  syntax error, unexpected '.' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 297
+[07-Apr-2017 14:45:25 America/Chicago] PHP Parse error:  syntax error, unexpected '.' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 297
+[07-Apr-2017 18:22:04 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:55 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:55 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:56 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:56 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:56 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:56 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:56 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:57 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:35:57 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:57:12 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home3/spritemoney/public_html/preparetestcse345.co/application/controllers/Main.php on line 311
+[07-Apr-2017 19:58:47 America/Chicago] PHP Parse error:  syntax error, unexpected '.' in /home3/spritemoney/public_html/preparetestcse345.co/application/views/english_result_display.php on line 76

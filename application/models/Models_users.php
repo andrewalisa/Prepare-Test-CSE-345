@@ -131,4 +131,126 @@ class Models_users extends CI_Model {
 			return false; 
 		}
 	}
+
+	public function get_english_paragraph($difficulty){
+		$diff = substr($difficulty, 0, 1); 
+		$where = "ENGLISH_PROB.ENG_PARA_ID = ENGLISH_PARAGRAPH.ENG_PARA_ID
+							AND ENGLISH_PROB.PROB_ID = PROBLEM.PROB_ID
+							AND PROBLEM.DIFF_LEVEL = '";
+		$where .= $diff;
+		$where .= "'";
+		$this->db->distinct();
+		$this->db->select("ENGLISH_PARAGRAPH.CONTENT");
+		$this->db->where($where);
+		$query = $this->db->get('ENGLISH_PROB, PROBLEM, ENGLISH_PARAGRAPH');
+
+		return $query->result();
+
+		$num_data_return = $query->num_rows;
+
+		if ($num_data_return < 1) {
+			echo "There is nothing in the database";
+			exit();
+		}
+	}
+
+	public function get_english_question($difficulty){
+		$diff = substr($difficulty, 0, 1);
+
+		$where = "ENGLISH_PROB.PROB_ID = PROBLEM.PROB_ID AND PROBLEM.DIFF_LEVEL = '";
+		$where .= $diff;
+		$where .= "'";
+
+		$this->db->select("ENG_PROB_ID, PROB_QUESTION, PROB_CHOICE_1, PROB_CHOICE_2, PROB_CHOICE_3, PROB_ANSWER");
+		$this->db->where($where);
+		$query = $this->db->get('ENGLISH_PROB, PROBLEM');
+
+		return $query->result();
+
+		$num_data_return = $query->num_rows;
+
+	}
+
+	public function creating_log() {
+		$now = new DateTime(null, new DateTimeZone('America/New_York'));
+		$date = $now->format('Y-m-d H:i:s');
+
+		$email = $this->session->userdata('email');
+
+		$this->db->where('STU_EMAIL', $email);
+
+		$query = $this->db->get('STUDENT');
+
+		$this->db->select('MAX(TEST_ID)');
+		$query_test_id = $this->db->get('TEST'); 
+
+
+			if ($query_test_id->num_rows() == 1) {
+				$row = $query->row_array();
+
+				$TEST_ID = $row['TEST_ID'] + 1;
+
+			} else {
+				$TEST_ID = 1; 
+			}
+
+			if ($query->num_rows() == 1) {
+				$row = $query->row_array();
+
+				$STU_ID =  $row['STU_ID'];
+
+				$data = array(
+					'TEST_ID' => $TEST_ID,
+					'STU_ID' => $STU_ID,
+					'TEST_DATETIME' => $date
+				); 
+
+				$this->db->insert('test', $data); 
+				return true;
+			} else {
+				return false;
+			}
+
+
+	}
+
+	public function get_reading_paragraph($difficulty){
+		$diff = substr($difficulty, 0, 1); 
+		$where = "READING_PROB.PARA_ID = PARAGRAPH.PARA_ID
+							AND READING_PROB.PROB_ID = PROBLEM.PROB_ID
+							AND PROBLEM.DIFF_LEVEL = '";
+		$where .= $diff;
+		$where .= "'";
+		$this->db->distinct();
+		$this->db->select("PARAGRAPH.CONTENT");
+		$this->db->where($where);
+		$query = $this->db->get('READING_PROB, PROBLEM, PARAGRAPH');
+
+		return $query->result();
+
+		$num_data_return = $query->num_rows;
+
+		if ($num_data_return < 1) {
+			echo "There is nothing in the database";
+			exit();
+		}
+	}
+
+	public function get_reading_question($difficulty){
+		$diff = substr($difficulty, 0, 1);
+
+		$where = "READING_PROB.PROB_ID = PROBLEM.PROB_ID AND PROBLEM.DIFF_LEVEL = '";
+		$where .= $diff;
+		$where .= "'";
+
+		$this->db->select("READING_PROB_ID, PROB_QUESTION, PROB_CHOICE_1, PROB_CHOICE_2, PROB_CHOICE_3, PROB_ANSWER");
+		$this->db->where($where);
+		$query = $this->db->get('READING_PROB, PROBLEM');
+
+		return $query->result();
+
+		$num_data_return = $query->num_rows;
+
+	}
+
 }

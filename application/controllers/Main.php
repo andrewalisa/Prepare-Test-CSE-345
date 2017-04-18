@@ -234,17 +234,184 @@ class Main extends CI_Controller {
 
 	  }
 
+	  //Loads the confirmation page for the user 
 	  public function confirm_test_english($difficulty) {
+	  	//Checking if the string is entered is easy, medium, or hard. If it is anything else, it will take them to the restricted page.
+	  	if (strtolower($difficulty) == 'easy' || strtolower($difficulty) == 'medium' || strtolower($difficulty) == 'hard' ) {
+	  		//Confirming if the user is logged in
+			if ($this->session->userdata('is_logged_in')) {
+				//Putting the difficulty in an array (PHP/CI requires this when passing variables to a view)
+				$arr_difficulty = array('diff' => ucwords(strtolower($difficulty)) ); 
+				//Loading the confirm_test_english view, and passing the array. 
+				$this->load->view('confirm_test_english', $arr_difficulty); 
+
+			} else {
+				//If user is not logged in, take them to the restricted page.
+				redirect('Main/restricted');	 
+			}	
+		} else {
+				//If difficulty is not easy, medium, hard, take them to the restricted page. 
+				redirect('Main/restricted');	 
+			}	
+
+	  }
+
+	  //Loading the English Test 
+	  public function english_test($difficulty){
+	  	  	//Checking if the string is entered is easy, medium, or hard. If it is anything else, it will take them to the restricted page.
+	 
+	  	if (strtolower($difficulty) == 'easy' || strtolower($difficulty) == 'medium' || strtolower($difficulty) == 'hard' ) {
+	  		//Confirming if the user is logged in
+			if ($this->session->userdata('is_logged_in')) {
+				//Putting the difficulty in an array (PHP/CI requires this when passing variables to a view)
+				$arr_difficulty = array('diff' => ucwords(strtolower($difficulty)) );
+
+			  	$this->load->model('Models_users');
+
+			  	$this->dataEnglish['Eng_Paragraph'] = $this->Models_users->get_english_paragraph($difficulty);
+			  	$this->dataEnglish['Question'] = $this->Models_users->get_english_question($difficulty) ;
+
+			  	$data = array_merge($arr_difficulty, $this->dataEnglish);
+
+			  	//$this->load->view('english_test', $this->dataEnglishParagraph); 
+				//Loading the english_test view, and passing the array. 
+				$this->load->view('english_test', $data); 
+
+			} else {
+				//If user is not logged in, take them to the restricted page.
+				redirect('Main/restricted');	 
+			}	
+		} else {
+				//If difficulty is not easy, medium, hard, take them to the restricted page. 
+				redirect('Main/restricted');	 
+			}	
+
+	  }
+
+	  /*public function quiz_display_english() {
+
+	  	$this->load->model('Models_users');
+	  	$this->dataEnglishParagraph['Eng_Paragraph'] = $this->Models_users->get_english_paragraph();
+	  	$this->load->view('english_test', $this->data);
+	  } */
+	  public function english_result_display($difficulty){
+	 
+	  	if (strtolower($difficulty) == 'easy' || strtolower($difficulty) == 'medium' || strtolower($difficulty) == 'hard' ) {
+	  		
+			if ($this->session->userdata('is_logged_in')) {
+
+				$arr_difficulty = array('diff' => ucwords(strtolower($difficulty)) );
+
+			  	$this->load->model('Models_users');
+
+			  	$this->dataEnglish['Eng_Paragraph'] = $this->Models_users->get_english_paragraph($difficulty);
+			  	$this->dataEnglish['results'] = $this->Models_users->get_english_question($difficulty) ;
+
+
+				$this->dataCheck['checks'] = array(
+				     'ques1' => $this->input->post('quizid1'),
+				     'ques2' => $this->input->post('quizid2'),
+					 'ques3' => $this->input->post('quizid3'),
+					 'ques4' => $this->input->post('quizid4'),
+				     'ques5' => $this->input->post('quizid5'),
+					 'ques6' => $this->input->post('quizid6'),
+					 'ques7' => $this->input->post('quizid7'),
+					 'ques8' => $this->input->post('quizid8'),
+				     'ques9' => $this->input->post('quizid9'),
+					 'ques10' => $this->input->post('quizid10'),
+					 'ques11' => $this->input->post('quizid11'),
+					 'ques12' => $this->input->post('quizid12'),
+					 'ques13' => $this->input->post('quizid13'),
+					 'ques14' => $this->input->post('quizid14'),
+					 'ques15' => $this->input->post('quizid15')
+				);
+
+				$arr_checks = $this->dataCheck;
+				$arr_dataEnglish = $this->dataEnglish;
+
+			  	$data = array_merge($arr_difficulty,$arr_dataEnglish, $arr_checks );
+
+
+				$this->load->view('english_result_display', $data); 
+
+			} else {
+				//If user is not logged in, take them to the restricted page.
+				redirect('Main/restricted');	 
+			}	
+		} else {
+				//If difficulty is not easy, medium, hard, take them to the restricted page. 
+				redirect('Main/restricted');	 
+			}	
+
+	  }
+
+	//Loads the Select Difficulty view for the English test
+	public function select_difficulty_reading() {
+		
+
+		//If this is true then load the difficulty page. Else redirect to the restricted page.
+		//Basically, if the user is logged in, go to the difficulty page for English, else it will take the user to a restricted page. 
 		if ($this->session->userdata('is_logged_in')) {
-			$arr_difficulty = array('diff' => $difficulty ); 
 
-			$this->load->view('confirm_test_english', $arr_difficulty); 
-
+			$this->load->view('select_difficulty_reading'); 
 		} else {
 			redirect('Main/restricted');	 
 		}	
+	}
+	  //Loads the confirmation page for the user 
+	  public function confirm_test_reading($difficulty) {
+	  	//Checking if the string is entered is easy, medium, or hard. If it is anything else, it will take them to the restricted page.
+	  	if (strtolower($difficulty) == 'easy' || strtolower($difficulty) == 'medium' || strtolower($difficulty) == 'hard' ) {
+	  		//Confirming if the user is logged in
+			if ($this->session->userdata('is_logged_in')) {
+				//Putting the difficulty in an array (PHP/CI requires this when passing variables to a view)
+				$arr_difficulty = array('diff' => ucwords(strtolower($difficulty)) ); 
+				//Loading the confirm_test_english view, and passing the array. 
+				$this->load->view('confirm_test_english', $arr_difficulty); 
+
+			} else {
+				//If user is not logged in, take them to the restricted page.
+				redirect('Main/restricted');	 
+			}	
+		} else {
+				//If difficulty is not easy, medium, hard, take them to the restricted page. 
+				redirect('Main/restricted');	 
+			}	
 
 	  }
-	
+
+	  //Loading the English Test 
+	  public function reading_test($difficulty){
+	  	  	//Checking if the string is entered is easy, medium, or hard. If it is anything else, it will take them to the restricted page.
+	 
+	  	if (strtolower($difficulty) == 'easy' || strtolower($difficulty) == 'medium' || strtolower($difficulty) == 'hard' ) {
+	  		//Confirming if the user is logged in
+			if ($this->session->userdata('is_logged_in')) {
+				//Putting the difficulty in an array (PHP/CI requires this when passing variables to a view)
+				$arr_difficulty = array('diff' => ucwords(strtolower($difficulty)) );
+
+			  	$this->load->model('Models_users');
+
+			  	$this->dataEnglish['CONTENT'] = $this->Models_users->get_reading_paragraph($difficulty);
+			  	$this->dataEnglish['Question'] = $this->Models_users->get_reading_question($difficulty) ;
+
+			  	$data = array_merge($arr_difficulty, $this->dataEnglish);
+
+			  	//$this->load->view('english_test', $this->dataEnglishParagraph); 
+				//Loading the english_test view, and passing the array. 
+				$this->load->view('english_test', $data); 
+
+			} else {
+				//If user is not logged in, take them to the restricted page.
+				redirect('Main/restricted');	 
+			}	
+		} else {
+				//If difficulty is not easy, medium, hard, take them to the restricted page. 
+				redirect('Main/restricted');	 
+			}	
+
+	  }
+
+
 
 }

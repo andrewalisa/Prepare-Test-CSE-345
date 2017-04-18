@@ -34,8 +34,8 @@ ini_set("display_errors", "on");
         <p>Please select the difficulty for your English test: </p>
 
         <p><a class="btn btn-primary btn-lg" href='<?php echo base_url()."Main/confirm_test_english/Easy"; ?>' role="button">Easy &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Medium &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Hard &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href='<?php echo base_url()."Main/confirm_test_english/Medium"; ?>' role="button">Medium &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href='<?php echo base_url()."Main/confirm_test_english/Hard"; ?>' role="button">Hard &raquo;</a></p>
       </div>
     </div>
 

@@ -30,8 +30,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container">
         <h1>Restricted</h1>
         <p>HEY YOU, YEAH YOU, you DO NOT have access to this page.</p>
-        <p>Please login or create an account to receive access to this page.</p>
-        
+          <?php
+            if (!$this->session->userdata('is_logged_in')) {
+              echo '<p>Please login or create an account to receive access to this page.</p>'; 
+            }
+
+           ?>
         <p><a class="btn btn-primary btn-lg" href="/main" role="button">Back to the home page &raquo;</a></p>
       </div>
     </div>

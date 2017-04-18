@@ -33,10 +33,10 @@ ini_set("display_errors", "on");
         <h1>Confirm Your English Test</h1>
         <p><b><i>Please review the following:</i></b></p><br/>
           <p>Your selected subject: <span style="color: red;">English</span></p>
-          <p>Your selected difficulty: <span style="color: red;"><?=$diff ; ?></span></p> <br/>
+          <p>Your selected difficulty: <span style="color: red;"><?=$diff; ?></span></p> <br/>
           <p>If everything above looks correct, please click the "Start Button" below.</p>
 
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Start &raquo;</a></p>
+          <p><a class="btn btn-primary btn-lg" href='<?php echo base_url()."Main/english_test/"; ?><?=$diff; ?>' role="button">Start &raquo;</a></p>
       </div>
     </div>
 

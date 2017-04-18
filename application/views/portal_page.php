@@ -56,19 +56,16 @@ ini_set("display_errors", "on");
             <li><p><b>READ</b> and <b>REREAD</b> the entire passage before you answer the questions.</p></li>
           </ul>
             <p><a class="btn btn-default" href='<?php echo base_url()."Main/select_difficulty_english"; ?>' role="button">Select the Difficulty for the English Test &raquo;</a></p>
-
-          
-
-          <?php 
-          echo "<pre>";
-          print_r($this->session->all_userdata()) ;
-          echo "</pre>";
-          ?>
         </div>
         <div class="col-md-6">
           <h2>Reading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Select the Difficulty for the Reading Test &raquo;</a></p>
+          <h4><i>Some Tips:</i></h4>
+          <ul>
+          <li><p>Read the passage(s) carefully.</p></li>
+          <li><p>Read and consider all of the answer choices before you choose the one that best responds to the question.</p></li>
+          <li><p>Refer to the passage(s) when answering the questions.</p></li>
+          </ul>
+          <p><a class="btn btn-default" href='<?php echo base_url()."Main/select_difficulty_reading"; ?>' role="button">Select the Difficulty for the Reading Test &raquo;</a></p>
         </div>
       </div>
 
